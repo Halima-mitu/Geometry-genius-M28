@@ -47,4 +47,48 @@ function calculateRectangleArea(){
 // reusable function --> reduce duplicate code
 function calculateParallelogramArea(){
     // console.log('parallelogram');
+    const parallelogramBase = getInputValue('parallelogram-base');
+    // console.log(parallelogramBase);
+
+    const parallelogramHeight = getInputValue('parallelogram-height');
+    // console.log(parallelogramHeight);
+
+    const area = parallelogramBase * parallelogramHeight
+    // console.log(area);
+    setElementInnerText('parallelogram-area',area);
+}
+
+function calculateRhombusArea(){
+    const rhombusD1 = getInputValue('rhombus-d1');
+    const rhombusD2 = getInputValue('rhombus-d2');
+    const area = 0.5 * rhombusD1 * rhombusD2;
+    setElementInnerText('rhombus-area', area);
+}
+
+function calculatePentagonArea(){
+    const pentagonP = getInputValue('pentagon-p');
+    const pentagonB = getInputValue('pentagon-b');
+    const area = 0.5 * pentagonP * pentagonB;
+    setElementInnerText('pentagon-area', area);
+}
+
+function calculateEllipseArea(){
+    const majorRadius = getInputValue('ellipse-major-radius');
+    const minorRadius =getInputValue('ellipse-minor-radius')
+    const area = 3.14 * majorRadius * minorRadius;
+    setElementInnerText('ellipse-area', area);
+}
+
+// reuseable get input value field in number
+function getInputValue(fieldId){
+    const inputField = document.getElementById(fieldId);
+    const inputValueText = inputField.value;
+    const value = parseFloat(inputValueText);
+    return value;
+}
+
+// reusable set span,p,div,etc text.
+function setElementInnerText(elementId, area){
+    const element = document.getElementById(elementId);
+    element.innerText = area;
 }
